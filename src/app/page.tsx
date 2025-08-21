@@ -77,7 +77,7 @@ export default function Home() {
     "That's it, buddy. Go touch grass."
   ];
   
-  const [currentRefusalMessage, setCurrentRefusalMessage] = useState(1); // Set to index 1 (second message)
+  const [currentRefusalMessage] = useState(1); // Set to index 1 (second message)
   
   useEffect(() => {
     // Check localStorage on component mount
@@ -151,6 +151,7 @@ export default function Home() {
   
   const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter' && !hasSubmitted && !isLoading) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       handleSubmit(e as any);
     }
   };
